@@ -33,10 +33,10 @@
 		ret
 	}
 	
-	.method public static void Write<a> (!!a Value, native int Destination) cil managed {
+	.method public static void Write<a> (native int Destination, !!a Value) cil managed {
 		.maxstack 2
-		ldarg.1
 		ldarg.0
+		ldarg.1
 		stobj !!a
 		ret
 	}
