@@ -119,19 +119,19 @@
 		ret
 	}
 	
-	.method public static void Copy<a> (!!a[] SourceArray, int32 SourceOffset, !!a[] DestinationArray, int32 DestinationOffset, unsigned int32 Size) cil managed {
+	.method public static void Copy<a, b> (!!a[] SourceArray, int32 SourceOffset, !!b[] DestinationArray, int32 DestinationOffset, unsigned int32 Size) cil managed {
 		.maxstack 4
-		.locals (!!a & pinned source, !!a & pinned destination)
+		.locals (!!a & pinned source, !!b & pinned destination)
 		
 		// Pin destination and push base pointer
 		ldarg.2
 		ldc.i4.0
-		ldelema !!a
+		ldelema !!b
 		dup
 		stloc.1
 		
 		// Add offset
-		sizeof !!a
+		sizeof !!b
 		ldarg.3
 		mul
 		add
