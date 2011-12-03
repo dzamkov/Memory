@@ -41,6 +41,23 @@
 		ret
 	}
 	
+	.method public static native int Alloc (unsigned int32 Size) cil managed {
+		.maxstack 1
+		ldarg.0
+		conv.u
+		tail.
+		call native int [mscorlib]System.Runtime.InteropServices.Marshal::AllocHGlobal (native int)
+		ret
+	}
+	
+	.method public static void Free (native int Memory) cil managed {
+		.maxstack 1
+		ldarg.0
+		tail.
+		call void [mscorlib]System.Runtime.InteropServices.Marshal::FreeHGlobal (native int)
+		ret
+	}
+	
 	.method public static void Copy (native int Source, native int Destination, unsigned int32 Size) cil managed {
 		.maxstack 3
 		ldarg.1
